@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Класс простая анимация
+ * Анимация с градиентом
  * @autor EvgeniiTiurin
  * @version 1.1
  */
