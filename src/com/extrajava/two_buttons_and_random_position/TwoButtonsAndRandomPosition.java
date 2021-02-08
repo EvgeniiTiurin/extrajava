@@ -53,6 +53,8 @@ public class TwoButtonsAndRandomPosition {
         public void paintComponent(Graphics g) {
             Graphics2D g2d = (Graphics2D) g;
 
+            int x = (int) (Math.random() * 400);
+            int y = (int) (Math.random() * 400);
             int red = (int) (Math.random() * 255);
             int green = (int) (Math.random() * 255);
             int blue = (int) (Math.random() * 255);
@@ -63,9 +65,9 @@ public class TwoButtonsAndRandomPosition {
             blue = (int) (Math.random() * 255);
             Color endColor = new Color (red, green, blue);
 
-            GradientPaint gradient = new GradientPaint(70,70,startColor, 150,150, endColor);
+            GradientPaint gradient = new GradientPaint(x,y,startColor, x + 80,y + 80, endColor);
             g2d.setPaint(gradient);
-            g2d.fillOval((int) (Math.random() * 400),(int) (Math.random() * 400),100,100);
+            g2d.fillOval(x,y,100,100);
         }
     }
 }
