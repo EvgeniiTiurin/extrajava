@@ -1,10 +1,13 @@
 package com.extrajava.simple_animation;
 
-import com.extrajava.two_buttons_and_random_position.TwoButtonsAndRandomPosition;
+/**
+ * Класс простая анимация
+ * @autor EvgeniiTiurin
+ * @version 1.1
+ */
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 public class SimpleAnimation {
 
@@ -13,55 +16,36 @@ public class SimpleAnimation {
     int x = 25;
     int y = 25;
 
-        public static void main(String[] args) {
-            SimpleAnimation gui = new SimpleAnimation();
-            gui.go();
+    public static void main(String[] args) {
+        SimpleAnimation gui = new SimpleAnimation();
+        gui.go();
+    }
+
+    public void go() {
+        frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        MyDrawPanel drawPanel = new MyDrawPanel();
+
+        frame.setSize(300, 300);
+        frame.setVisible(true);
+        frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
+
+        for (int i = 0; i < 400; i++) {
+            x++;
+            y++;
+
+            drawPanel.repaint();
+
+            try {
+                Thread.sleep(50);
+            } catch (Exception ex) { }
         }
+    }
 
-        public void go() {
-            frame = new JFrame();
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-            JButton moveButton = new JButton("Move Circle");
-            moveButton.addActionListener(new ColorListener());
-
-            MyDrawPanel drawPanel = new MyDrawPanel();
-
-            frame.getContentPane().add(BorderLayout.SOUTH, moveButton);
-            frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
-
-            frame.setSize(300, 300);
-            frame.setVisible(true);
+    class MyDrawPanel extends JPanel {
+        public void paintComponent(Graphics g) {
+            g.setColor(Color.green);
+            g.fillOval(x,y, 40,40);
         }
-
-
-        class ColorListener implements ActionListener {
-            public void actionPerformed(ActionEvent event) {
-                frame.repaint();
-            }
-        }
-
-
-        class MyDrawPanel extends JPanel {
-
-            public void paintComponent(Graphics g) {
-                Graphics2D g2d = (Graphics2D) g;
-                x =+ 5;
-                y =+ 5;
-
-                int red = (int) (Math.random() * 255);
-                int green = (int) (Math.random() * 255);
-                int blue = (int) (Math.random() * 255);
-                Color startColor = new Color (red, green, blue);
-
-                red = (int) (Math.random() * 255);
-                green = (int) (Math.random() * 255);
-                blue = (int) (Math.random() * 255);
-                Color endColor = new Color (red, green, blue);
-
-                GradientPaint gradient = new GradientPaint(x,y,startColor, x + 80,y + 80, endColor);
-                g2d.setPaint(gradient);
-                g2d.fillOval(x ,y ,100,100);
-            }
-        }
+    }
 }
