@@ -37,14 +37,20 @@ public class SimpleAnimation {
             drawPanel.repaint();
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(50); // замедление
             } catch (Exception ex) { }
         }
     }
 
     class MyDrawPanel extends JPanel {
         public void paintComponent(Graphics g) {
-            g.setColor(Color.green);
+
+            int red = (int) (Math.random() * 255);
+            int green = (int) (Math.random() * 255);
+            int blue = (int) (Math.random() * 255);
+            Color сolor = new Color (red, green, blue);
+
+            g.setColor(сolor);
             g.fillOval(x,y, 40,40);
         }
     }
