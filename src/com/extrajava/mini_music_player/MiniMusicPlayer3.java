@@ -11,7 +11,6 @@ package com.extrajava.mini_music_player;
  */
 
 import javax.sound.midi.*;
-import java.io.*;
 import javax.swing.*;
 import java.awt.*;
 
