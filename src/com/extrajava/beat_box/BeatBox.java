@@ -164,7 +164,7 @@ public class BeatBox {
     }
 
     public class MyReadInListener implements ActionListener {
-        public void actionPerformed(ActionEvent a) {D
+        public void actionPerformed(ActionEvent a) {
             boolean[] checkboxState = null;
             try {
                 FileInputStream fileIn = new FileInputStream(new File("out/BeatBox/Checkbox.ser"));
