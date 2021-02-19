@@ -3,8 +3,8 @@ package com.extrajava.simple_chat_client;
 /**
  * Simple Chat Client
  * @autor EvgeniiTiurin
- * @version 1.1
- * Пока он только отправляет сообщения на сервер
+ * @version 1.2
+ * Теперь, благодаря потокам, он работает более корректно
  */
 
 import java.io.*;
@@ -49,6 +49,7 @@ public class VerySimpleChatServer {
         clientOutputStreams = new ArrayList();
         try {
             ServerSocket serverSock = new ServerSocket(5000);
+
             while(true) {
                 Socket clientSocket = serverSock.accept();
                 PrintWriter writer = new PrintWriter(clientSocket.getOutputStream());
