@@ -1,8 +1,8 @@
 /**
  * Jukebox
  * @autor EvgeniiTiurin
- * @version 1.4
- * Используем HashSet вместо ArrayList
+ * @version 1.5
+ * Используем TreeSet вместо HashList
  */
 
 package com.extrajava.juke_box;
@@ -10,11 +10,12 @@ package com.extrajava.juke_box;
 import java.util.*;
 import java.io.*;
 
-public class Jukebox4 {
+public class Jukebox5 {
     ArrayList<Song> songList = new ArrayList<Song>();
+    int val;
 
     public static void main(String[] args) {
-        new Jukebox4().go();
+        new Jukebox5().go();
     }
 
     class ArtistCompare implements Comparator<Song> {
@@ -29,7 +30,7 @@ public class Jukebox4 {
         Collections.sort(songList);
         System.out.println(songList);
 
-        HashSet<Song> songSet = new HashSet<Song>();
+        TreeSet<Song> songSet = new TreeSet<Song>();
         songSet.addAll(songList);
         System.out.println(songSet);
     }
