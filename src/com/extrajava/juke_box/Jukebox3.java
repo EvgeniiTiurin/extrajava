@@ -1,7 +1,7 @@
 /**
  * Jukebox
  * @autor EvgeniiTiurin
- * @version 1.2
+ * @version 1.3
  */
 
 package com.extrajava.juke_box;
@@ -9,17 +9,27 @@ package com.extrajava.juke_box;
 import java.util.*;
 import java.io.*;
 
-public class Jukebox2 {
+public class Jukebox3 {
     ArrayList<Song> songList = new ArrayList<Song>();
 
     public static void main(String[] args) {
-        new Jukebox2().go();
+        new Jukebox3().go();
+    }
+
+    class ArtistCompare implements Comparator<Song> {
+        public int compare(Song one, Song two) {
+            return one.getArtist().compareTo(two.getArtist());
+        }
     }
 
     public void go() {
         getSongs();
         System.out.println(songList);
         Collections.sort(songList);
+        System.out.println(songList);
+
+        ArtistCompare artistCompare = new ArtistCompare();
+        Collections.sort(songList, artistCompare);
         System.out.println(songList);
     }
 
