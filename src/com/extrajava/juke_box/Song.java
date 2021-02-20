@@ -1,7 +1,7 @@
 /**
  * Song
  * @autor EvgeniiTiurin
- * @version 1.2
+ * @version 1.4
  */
 
 package com.extrajava.juke_box;
@@ -11,6 +11,15 @@ public class Song implements Comparable<Song> {
     String artist;
     String rating;
     String bpm;
+
+    public boolean equals(Object aSong) {
+        Song s = (Song) aSong;
+        return getTitle().equals(s.getTitle());
+    }
+
+    public int hashCode() {
+        return title.hashCode();
+    }
 
     public int compareTo(Song s) {
         return title.compareTo(s.getTitle());
