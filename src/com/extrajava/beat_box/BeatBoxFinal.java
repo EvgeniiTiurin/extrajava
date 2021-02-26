@@ -90,7 +90,6 @@ public class BeatBoxFinal {
         JButton sendIt = new JButton("sendIt");
         sendIt.addActionListener(new MySendListener());
         buttonBox.add(sendIt);
-
         userMessage = new JTextField();
         buttonBox.add(userMessage);
 
@@ -123,8 +122,6 @@ public class BeatBoxFinal {
             checkboxList.add(c);
             mainPanel.add(c);
         }
-
-        //setUpMidi();
 
         theFrame.setBounds(50, 50, 300, 300);
         theFrame.pack();
@@ -160,8 +157,6 @@ public class BeatBoxFinal {
             }
             makeTracks(trackList);
         }
-//            track.add(makeEvent(176, 1, 127, 0, 16));
-//        }
 
         track.add(makeEvent(192, 9, 1, 0, 15));
         try {
@@ -194,9 +189,6 @@ public class BeatBoxFinal {
                 }
             }
             try {
-//                FileOutputStream fileStream = new FileOutputStream(new File("out/BeatBox/Checkbox.ser"));
-//                ObjectOutputStream os = new ObjectOutputStream(fileStream);
-//                os.writeObject(checkboxState);
                 out.writeObject(userName + nextNum++ + ": " + userMessage.getText());
                 out.writeObject(checkboxState);
             } catch (Exception ex) {
@@ -205,30 +197,6 @@ public class BeatBoxFinal {
             userMessage.setText("");
         }
     }
-
-//    public class MyReadInListener implements ActionListener {
-//        public void actionPerformed(ActionEvent a) {
-//            boolean[] checkboxState = null;
-//            try {
-//                FileInputStream fileIn = new FileInputStream(new File("out/BeatBox/Checkbox.ser"));
-//                ObjectInputStream is = new ObjectInputStream(fileIn);
-//                checkboxState = (boolean[]) is.readObject();
-//            } catch (Exception ex) {
-//                ex.printStackTrace();
-//            }
-//            for (int i = 0; i < 256; i++) {
-//                JCheckBox check = (JCheckBox) checkboxList.get(i);
-//                if (checkboxState[i]) {
-//                    check.setSelected(true);
-//                } else {
-//                    check.setSelected(false);
-//                }
-//            }
-//
-//            sequencer.stop();
-//            buildTrackAndStart();
-//        }
-//    }
 
     public class MyListSelectionListener implements ListSelectionListener {
         public void valueChanged(ListSelectionEvent le) {
